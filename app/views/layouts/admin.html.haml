@@ -12,7 +12,7 @@
 
     %script{:src => "//cdn.quilljs.com/1.0.2/quill.min.js", :type => "text/javascript"}
     %link{:href => "//cdn.quilljs.com/1.0.2/quill.snow.css", :rel => "stylesheet"}/
-    = csrf_meta_tags
+    = csrf_meta_tag
   %body
     - if flash
       - flash.each do |key, value|
