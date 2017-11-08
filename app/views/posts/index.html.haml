@@ -2,8 +2,8 @@
   - unless @posts.empty?
     .row.expanded
 
-      .small-12.medium-9.large-6.columns.medium-centered.discussions
-        %h2.text-center= t :current_discussions
+      .small-12.discussions
+        .header.text-center= t :current_discussions
 
     .row.expanded.small-up-1.large-up-3.medium-up-2
       - @posts.each do |post|

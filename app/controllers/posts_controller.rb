@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.published.by_era(@era.id).order(published_at: :desc)
+    @posts = Post.published.by_era(@era.id).order(updated_at: :desc)
     # @posts += Comment.frontpage
     set_meta_tags title: 'Topics'
   end
