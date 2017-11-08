@@ -1,0 +1,53 @@
+!!! 5
+%html{ :lang => "en"}
+  %head
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+    %link{:href => "https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro", :rel => "stylesheet"}/
+    %title= content_for?(:title) ? yield(:title) : "Untitled"
+    = javascript_include_tag "application"
+    = stylesheet_link_tag "application"
+    = csrf_meta_tag
+
+  %body
+    - if flash
+      - flash.each do |key, value|
+        .alert.text-center{ :class => "alert-#{key}" }
+          %strong= raw value
+
+    %header
+      .row
+        .small-12.column.hr
+          %hr
+      .row
+        .small-10.large-3.medium-5.columns.text-left
+          = link_to "[" + t(:about_experiment_2) + "]", page_path('info-on-experiment-2')
+        .medium-2.large-6.hide-for-small-only.columns &nbsp;
+        .small-10.large-3.medium-5.columns.text-right
+          - if I18n.locale.to_s != 'fi'
+            = link_to '[FIN]', :controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'fi'
+          - else
+            %strong FIN
+          |
+          - if I18n.locale.to_s != 'en'
+            = link_to '[ENG]', :controller => controller.controller_name, :action => controller.action_name, :id => params[:id], :locale => 'en'
+          - else
+            %strong ENG
+      .row
+        .small-10.large-3.medium-5.columns.dashed.text-left
+          = link_to "[" + t(:whats_next) + "]", page_path('whats-next')
+        .medium-2.large-6.hide-for-small-only.columns &nbsp;
+        .small-10.large-3.medium-5.columns.dashed.text-right
+          - if user_signed_in?
+            = link_to current_user.username, current_user
+            = link_to "[" + t(:sign_out) + "]", destroy_user_session_path, :method => :delete
+    %article#main
+
+      = yield
+
+
+    :javascript
+          $(document).ready(function() {
+            #{yield :jquery}
+          });

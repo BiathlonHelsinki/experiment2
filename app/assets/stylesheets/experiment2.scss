@@ -1,0 +1,495 @@
+@import 'variables';
+
+.banner_bar {
+  background-color: $crimson;
+  margin: 0 0 2.5rem 0;
+  font-size: 1.4rem;
+  padding: 1rem 0;
+  color: white;
+  a {
+    color: white;
+    &:hover {
+      color: #999;
+    }
+  }
+}
+form {
+  li {
+    list-style-type: none;
+  }
+}
+
+.comment_wrapper {
+  position: relative;
+}
+
+.comment_input {
+  background-color: $grey;
+  white-space: pre-wrap;
+  height: 250px;
+  img {
+    max-height: 25px;
+    margin-left: 0.4rem;
+  }
+}
+.comment_input_textarea {
+  display: none;
+}
+
+.comment_input {
+  overflow-y: scroll;
+  background-color: $grey;
+  white-space: pre-wrap;
+  height: 250px;
+  max-width: 500px;
+  img {
+    max-height: 25px;
+    margin-left: 0.4rem;
+  }
+}
+
+.mentioned-user-list {
+  div.occluded {
+    display: none;
+  }
+}
+
+article.single_page {
+  margin: 4rem 0;
+  .page {
+    border: 2px solid $black;
+    position: relative;
+    background-color: white;
+    padding: 0; margin: 0;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: -10px;
+      right: 10px;
+      bottom: -10px;
+      background: white;
+      z-index: -1;
+      outline: 2px solid $black;
+    }
+    .heading {
+      font-family: $sourcecode;
+      font-size: 1.25rem;
+      border-bottom: 2px solid $black;
+      padding: 0.8rem 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .body {
+      font-family: $montserrat;
+    
+      padding: 1rem;
+    }
+  }
+}
+article.post_single, article.meeting_single {
+  margin: 4rem 0;
+  .post, .meeting {
+    border: 2px solid $black;
+    position: relative;
+    background-color: white;
+    padding: 0; margin: 0;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: -10px;
+      right: 10px;
+      bottom: -10px;
+      background: white;
+      z-index: -1;
+      outline: 2px solid $black;
+    }
+    .image {
+      margin: 1rem 0;
+    }
+    .heading {
+      font-family: $sourcecode;
+      font-size: 1.25rem;
+      border-bottom: 2px solid $black;
+      padding: 0.8rem 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .info_box {
+      padding: 1rem;
+
+      border-bottom: 2px solid $black;
+      font-weight: bold;
+      .meeting_title {
+        margin-bottom: 2rem;
+        color: $black;
+        font-family: $sourcecode;
+        font-size: 1.25rem;
+        font-weight: bold;
+
+      }
+      .date {
+        font-family: $sourcecode;
+        margin-bottom: 2rem;
+      }
+
+      .description {
+        font-family: $montserrat;
+        font-weight: bold;
+      }
+    }
+    .participant_grid {
+      margin: 1rem;
+      border: 2px solid $black;
+      .image {
+        margin: 0 0 0 0.5rem;
+      }
+    }
+    .linked_topics {
+      margin: 1rem 0;
+      font-family: $sourcecode;
+      font-size: 1.0rem;
+      border-top: 2px solid $black;
+      padding: 0.8rem 1rem 0 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    ul {
+      margin: 0;
+      border-bottom: 2px solid $black;
+      padding-bottom: 1.5rem;
+      li {
+        margin-left: 5rem;
+        list-style-type: disc;
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+    .meta {
+      font-family: $sourcecode;
+      padding: 0.8rem 1rem;
+      font-weight: bold;
+      a {
+        text-transform: uppercase;
+        text-decoration: underline;
+        &:hover {
+          background-color: $black;
+          color: white;
+        }
+      }
+      .posted_by {
+        img {
+          height: 40px;
+        }
+      }
+    }
+    h3 {
+      font-family: $sourcecode;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .title {
+      font-family: $sourcecode;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    .body {
+      .description {
+        float: left;
+        width: 65%;
+        font-size: 1rem;
+        color: $black;
+        font-family: $montserrat;
+
+      }
+      .notification_form {
+        font-weight: bold;
+        font-family: $sourcecode;
+        border: 2px solid $black;
+        float: right;
+        padding: 1rem;
+        width: 30%;
+        button {
+          font-family: $sourcecode;
+        }
+        .notification_form:after {
+          content: '';
+          position: absolute;
+          top: 10px;
+          left: -10px;
+          right: 10px;
+          bottom: -10px;
+          background: white;
+          z-index: -1;
+          outline: 2px solid $black;
+        }
+        .notification_question{
+
+        }
+        #notifications_result {
+
+        }
+      }
+    }
+
+    #comments_list {
+      padding: 1rem;
+      .comment_count {
+        display: none;
+      }
+
+
+      ul {
+        &.hidden {
+          display: none;
+        }
+        margin-left: 6.25rem;
+        padding-left: 0.2rem;
+        border-left: 1px solid #666;
+        &.first {
+          margin-left: 0;
+          border-left: none;
+        }
+        li {
+          margin-left: 0;
+          &.top-level {
+            border-left: none;
+            border-bottom: 1px solid $black;
+            padding: 1.5rem 0;
+            &:nth-child(2n) {
+              background-color: #dedede;
+            }
+          }
+          .row {
+            margin-left: 0 !important;
+            .column, .columns {
+              margin-left: 0 !important;
+              padding-left: 0 !important;
+            }
+          }
+          list-style-type: none;
+
+          .entry {
+
+            &.last .divided {
+              border-bottom: none;
+            }
+            padding: 1rem 0;
+            .horizontal_line {
+
+              hr {
+                display: block;
+                height: 1px;
+                border: 0;
+                border-top: 1px solid #666;
+                margin: 0;
+                padding: 0;
+              }
+            }
+            .occluded_form {
+              padding: 1rem 0;
+              display: none;
+              &.top {
+                display: block;
+              }
+              .comment_form {
+                .user_comment_box {
+                  img {
+                    float: right;
+                    height: 40px;
+                  }
+                }
+                form {
+                  .comment_wrapper {
+                    .comment_input {
+                      height: 150px !important;
+                    }
+                  }
+                  li {
+                    border: none;
+                    list-style-type: none;
+                    input[type=file] {
+                      font-size: 0.7rem;
+
+                    }
+                  }
+                }
+              }
+            }
+            .user_box {
+              img {
+                // height: 80px;
+              }
+            }
+            .comment_type {
+              font-family: $sourcecode;
+              font-size: 0.8rem;
+              font-weight: bold;
+
+            }
+            .comment_content {
+
+              font-size: 0.9rem;
+              color: #444;
+              padding: 0.9rem 1.8rem;
+              p img {
+                max-height: 30px;
+                margin-left: 0.4rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fieldset {
+  border: 1px dotted #333;
+  padding: 0.7rem;
+}
+
+.home, article.posts_index {
+  padding: 3rem 0;
+  .meeting {
+    margin-bottom: 3rem;
+    position: relative;
+    background-color: white;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: -10px;
+      right: 10px;
+      bottom: -10px;
+      background: white;
+      z-index: -1;
+      outline: 2px solid $black;
+    }
+    .heading {
+      font-family: $sourcecode;
+      font-size: 1.25rem;
+      border: 2px solid $black;
+      padding: 0.8rem 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .info_box {
+      padding: 1rem;
+      border-left: 2px solid $black;
+      border-right: 2px solid $black;
+      border-bottom: 2px solid $black;
+      font-weight: bold;
+      .title {
+        a {
+          color: $black;
+          font-family: $sourcecode;
+          font-size: 1.25rem;
+          font-weight: bold;
+        }
+        margin-bottom: 1.5rem;
+      }
+      .description {
+        font-family: $montserrat;
+        margin: 2rem 0;
+        font-weight: bold;
+      }
+    }
+    .meta {
+      font-family: $sourcecode;
+      border-left: 2px solid $black;
+      border-right: 2px solid $black;
+      border-bottom: 2px solid $black;
+      font-weight: bold;
+      padding: 0.8rem 1rem;
+      a {
+        text-transform: uppercase;
+        text-decoration: underline;
+        &:hover {
+          background-color: $black;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .discussions {
+    margin: 2.5rem 0;
+    .header {
+      font-family: $sourcecode;
+      font-weight: bold;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+  }
+  .post {
+    border: 2px solid $black;
+    position: relative;
+    background-color: white;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: -10px;
+      right: 10px;
+      bottom: -10px;
+      background: white;
+      z-index: -1;
+      outline: 2px solid $black;
+    }
+    .title {
+      font-size: 1.25rem;
+      border-bottom: 2px solid $black;
+      padding: 0.8rem 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      height: 90px;
+    }
+    .blurb {
+      border-bottom: 2px solid $black;
+      font-family: $montserrat;
+      padding: 1rem;
+      height: 250px;
+      font-weight: bold;
+    }
+    .meta {
+      font-family: $sourcecode;
+
+      font-weight: bold;
+      padding: 0.8rem 1rem;
+      a {
+        text-transform: uppercase;
+        text-decoration: underline;
+        &:hover {
+          background-color: $black;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+span.light {
+  color: #999;
+}
+
+
+header {
+  font-family: $sourcecode;
+  font-weight: bold;
+  .columns {
+    padding: 0.8rem 0;
+  }
+  .hr {
+    padding: 0;
+    margin: 0;
+    height: 1rem;
+  }
+  .dashed {
+    border-top: 2px dashed $black;
+    border-bottom: 2px dashed $black;
+  }
+}
