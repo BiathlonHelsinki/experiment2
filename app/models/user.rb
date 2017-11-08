@@ -4,12 +4,12 @@ class User < ActiveRecord::Base
   rolify
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
-  
+
   # Include default devise modules.
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :confirmable,
           :omniauthable, :validatable, :authentication_keys => [:login]
-          
+
   has_many :accounts
   has_many :authentications, :dependent => :destroy
   # accepts_nested_attributes_for :authentications, :reject_if => proc { |attr| attr['username'].blank? }
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   has_many :activities
   has_many :onetimers
   has_many :nfcs
-  has_and_belongs_to_many :events  
+  has_and_belongs_to_many :events
   scope :untagged, -> () { includes(:nfcs).where( nfcs: {user_id: nil}) }
   # has_many :event_users
   has_many :events,  foreign_key: 'primary_sponsor_id'
@@ -44,19 +44,19 @@ class User < ActiveRecord::Base
   has_many :userphotos
   has_many :userphotoslots
   has_one :survey
-  
+
   def as_mentionable
     {
       created_at: self.created_at,
       id: self.id,
       slug: self.slug,
       route: 'users',
-      image_url: self.avatar.url(:thumb).gsub(/development/, 'production'),
+      image_url: self.avatar.url(:thumb),
       name:  self.display_name,
       updated_at: self.updated_at
     }
   end
-  
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
       where(conditions.to_hash).first
     end
   end
-  
+
   def login=(login)
     @login = login
   end
@@ -74,19 +74,19 @@ class User < ActiveRecord::Base
   def login
     @login || self.username || self.email
   end
-  
+
   def add_to_activity_feed
     Activity.create(item: self, description: 'joined', user: self)
   end
-  
+
   def copy_password
     if geth_pwd.blank?
       self.geth_pwd = SecureRandom.hex(13)
     end
   end
-  
+
   # has_many :activities, as: :item
-  
+
   def display_name
     if show_name == true
       if name == username
@@ -98,24 +98,24 @@ class User < ActiveRecord::Base
       username
     end
   end
-  
+
   def should_generate_new_friendly_id?
      username_changed?
    end
-   
+
   def email_required?
     false
   end
-  
+
   def all_activities
     [activities, Activity.where(item: self)].flatten.compact.uniq
-    
+
   end
-  
+
   def available_balance
-    latest_balance - pending_pledges.sum(&:pledge)      
+    latest_balance - pending_pledges.sum(&:pledge)
   end
-  
+
   def update_balance_from_blockchain
     api = BiathlonApi.new
     balance = api.api_get("/users/#{id}/get_balance")
@@ -126,9 +126,9 @@ class User < ActiveRecord::Base
         save(validate: false)
       end
     end
-    
+
   end
-  
+
   def award_points(event, points = 10)
 
     # check if user has ethereum account yet
@@ -193,31 +193,31 @@ class User < ActiveRecord::Base
   def rsvpd?(instance)
     !rsvps.find_by(instance: instance).nil?
   end
-  
+
   def registered?(instance)
     !registrations.find_by(instance: instance).nil?
   end
-  
+
   def email_verified?
      self.email && self.email !~ TEMP_EMAIL_REGEX
    end
-   
+
    def has_pledged?(item)
      pledges.where(item: item).any?
    end
-   
+
    def active_pledge?(proposal)
      pledges.unconverted.where(item: proposal).any?
    end
-   
+
    def spent_pledges
      pledges.converted
    end
-     
+
    def pending_pledges
      pledges.unconverted
    end
-   
+
   def apply_omniauth(omniauth)
     if omniauth['provider'] == 'twitter'
       logger.warn(omniauth.inspect)
@@ -229,18 +229,18 @@ class User < ActiveRecord::Base
     elsif omniauth['provider'] == 'facebook'
       self.email = omniauth['info']['email'] if email.blank? || email =~ /change@me/
       self.username = omniauth['info']['name']
-      self.name = omniauth['info']['name'] 
+      self.name = omniauth['info']['name']
       self.name.strip!
       identifier = self.username
       # self.location = omniauth['extra']['user_hash']['location']['name'] if location.blank?
     elsif omniauth['provider'] == 'github'
       self.email = omniauth['info']['email'] if email.blank? || email =~ /change@me/
       self.username = omniauth['info']['nickname']
-      self.name = omniauth['info']['name'] 
+      self.name = omniauth['info']['name']
       self.name.strip!
-      identifier = self.username      
+      identifier = self.username
     elsif omniauth['provider'] == 'google_oauth2'
-      self.email = omniauth['info']['email'] 
+      self.email = omniauth['info']['email']
       self.name = omniauth['info']['name']
       self.username = omniauth['info']['email'].gsub(/\@gmail\.com/, '')
       identifier = self.username
@@ -252,11 +252,11 @@ class User < ActiveRecord::Base
         self.email = omniauth['info']['email']
       end
     end
-    
+
     self.password = SecureRandom.hex(32) if password.blank?  # generate random password to satisfy validations
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'], :username => identifier)
   end
-  
+
   def update_avatar_attributes
     if avatar.present? && avatar_changed?
       if avatar.file.exists?
@@ -266,5 +266,5 @@ class User < ActiveRecord::Base
       end
     end
   end
-  
+
 end

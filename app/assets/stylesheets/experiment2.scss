@@ -82,7 +82,7 @@ article.single_page {
     }
     .body {
       font-family: $montserrat;
-    
+
       padding: 1rem;
     }
   }
@@ -194,8 +194,11 @@ article.post_single, article.meeting_single {
       font-family: $sourcecode;
       font-size: 1.8rem;
       font-weight: bold;
+      border-bottom: 2px solid black;
+      padding: 1rem;
     }
     .body {
+      padding: 1rem;
       .description {
         float: left;
         width: 65%;
@@ -242,25 +245,26 @@ article.post_single, article.meeting_single {
 
 
       ul {
+        border-bottom: none;
         &.hidden {
           display: none;
         }
         margin-left: 6.25rem;
         padding-left: 0.2rem;
-        border-left: 1px solid #666;
+
         &.first {
+          margin-top: 5px;
           margin-left: 0;
           border-left: none;
         }
         li {
           margin-left: 0;
+
           &.top-level {
             border-left: none;
-            border-bottom: 1px solid $black;
-            padding: 1.5rem 0;
-            &:nth-child(2n) {
-              background-color: #dedede;
-            }
+            // border-bottom: 1px solid $black;
+            padding: 0;
+
           }
           .row {
             margin-left: 0 !important;
@@ -272,11 +276,16 @@ article.post_single, article.meeting_single {
           list-style-type: none;
 
           .entry {
-
+            border-top: 2px solid black;
+            border-left: 2px solid black;
+            border-bottom: 2px solid black;
+            border-right: 2px solid $black;
+            padding: 1rem;
+            margin-top: -2px;
             &.last .divided {
               border-bottom: none;
             }
-            padding: 1rem 0;
+
             .horizontal_line {
 
               hr {
@@ -426,6 +435,7 @@ fieldset {
     }
   }
   .post {
+    margin-bottom: 4rem;
     border: 2px solid $black;
     position: relative;
     background-color: white;
@@ -454,6 +464,7 @@ fieldset {
       padding: 1rem;
       height: 250px;
       font-weight: bold;
+      overflow-y: hidden;
     }
     .meta {
       font-family: $sourcecode;

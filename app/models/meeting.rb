@@ -9,6 +9,7 @@ class Meeting < ApplicationRecord
   extend FriendlyId
   friendly_id :title_en , :use => [:slugged, :finders]
   validates_presence_of :era_id, :start_at, :end_at
+  scope :published, ->() {where(published: true)}
   scope :upcoming, -> () {where(["published is true and cancelled is not true and end_at >=  ?", Time.now.utc.strftime('%Y/%m/%d %H:%M')]) }
   has_many :posts
   has_many :rsvps
@@ -35,7 +36,7 @@ class Meeting < ApplicationRecord
   def root_comment
     self
   end
-  
+
   def discussion
     comments
   end

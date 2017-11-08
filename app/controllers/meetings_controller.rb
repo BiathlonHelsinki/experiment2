@@ -21,10 +21,8 @@ class MeetingsController < ApplicationController
 
 
   def index
-    @meetings = Meeting.published.order(published_at: :desc)
-    @meetings += Comment.frontpage
-    @meetings.sort_by!(&:feed_date)
-    @meetings.reverse!
+    @meetings = Meeting.published.order(end_at: :desc)
+
     set_meta_tags title: 'News'
   end
 
