@@ -239,8 +239,7 @@ article.post_single, article.meeting_single {
     .body {
       padding: 1rem;
       .description {
-        float: left;
-        width: 65%;
+
         font-size: 1rem;
         color: $black;
         font-family: $montserrat;
@@ -252,7 +251,7 @@ article.post_single, article.meeting_single {
         border: 2px solid $black;
         float: right;
         padding: 1rem;
-        width: 30%;
+
         button {
           font-family: $sourcecode;
         }
@@ -473,10 +472,14 @@ fieldset {
       margin-bottom: 2.5rem;
     }
   }
+  .column {
+    position: relative;
+  }
   .add_post {
     border: 2px solid $black;
     margin: 6rem 0;
     padding: 0.5rem;
+    background-color: white;
     width: 50%;
     font-family: $sourcecode;
     font-weight: bold;
@@ -484,13 +487,17 @@ fieldset {
     &:after {
       content: '';
       position: absolute;
-      top: 10px;
-      left: -10px;
-      right: 10px;
-      bottom: -10px;
+      top: 108px;
+      left: 7px;
+      right: 231px;
+      bottom: 89px;
       background: white;
       z-index: -1;
       outline: 2px solid $black;
+    }
+    &:hover {
+      background-color: $black;
+      a { color: white; }
     }
   }
   .post {
@@ -559,6 +566,7 @@ header {
     height: 1rem;
   }
   .dashed {
+
     border-top: 2px dashed $black;
     border-bottom: 2px dashed $black;
   }
@@ -631,7 +639,7 @@ footer {
   }
 }
 
-a.button, input[type=submit] {
+a.button, button.button, input[type=submit] {
   border: 2px solid $black;
   font-family: $sourcecode;
   background-color: white;
@@ -640,5 +648,16 @@ a.button, input[type=submit] {
   &:hover {
     background-color: $black;
     color: white;
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  header {
+    .dashed {
+      border-bottom: none;
+    }
+  }
+  .home .post .title, article.posts_index .post .title {
+    font-size: 1.15rem;
   }
 }

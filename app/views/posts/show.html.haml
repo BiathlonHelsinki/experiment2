@@ -13,7 +13,7 @@
         - if @post.image?
           .image= image_tag @post.image.url
         .body
-          .description
+          .description.small-12.medium-8.columns
             = raw @post.body
             - if @post.meeting
               %fieldset.meetings
@@ -27,7 +27,7 @@
                   = @post.meeting.place.name
                   %pre= @post.meeting.place.address
           - if user_signed_in?
-            .small-12.columns.notification_form
+            .small-12.columns.notification_form.medium-4
               .notification_question= t(:receive_email_notifications_question_post)
 
               = semantic_form_for [@post, current_user, @post.notifications.by_user(current_user.id).empty? ? @post.notifications.build : @post.notifications.by_user(current_user.id).first], remote: true do |f|
