@@ -46,7 +46,7 @@
             .meta
               = pluralize(post.total_comment_count, t(:comment, count: post.total_comment_count))
               %span.light= "| "
-              = pluralize(post.notifications.size, t(:people, count: post.notifications.size)) + t(:watchig)
+              = pluralize(post.notifications.size, t(:person, count: post.notifications.size)) + t(:watching)
       .column
         .add_post
           = link_to new_post_path do
