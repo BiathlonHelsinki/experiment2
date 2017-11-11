@@ -47,5 +47,10 @@
               = pluralize(post.total_comment_count, 'comment')
               %span.light= "| "
               = pluralize(post.notifications.size, 'person') + ' watching'
+      .column
+        .add_post
+          = link_to new_post_path do
+            = fa_icon('plus')
+            = t(:start_a_new_topic)
   = content_for :jquery do
     :plain

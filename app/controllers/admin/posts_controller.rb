@@ -40,6 +40,7 @@ class Admin::PostsController < Admin::BaseController
       flash[:error] = 'Error updating post'
     end
   end
+
   protected
 
   def post_params
