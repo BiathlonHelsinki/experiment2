@@ -19,9 +19,9 @@
               .description
                 = raw meeting.description
             .meta
-              = pluralize(meeting.total_comment_count, 'comment')
+              = pluralize(meeting.total_comment_count, t(:comment, count: meeting.total_comment_count))
               %span.light= "| "
-              = pluralize(meeting.rsvps.size, 'person') + ' planning to attend'
+              = pluralize(meeting.rsvps.size, t(:person, count: meeting.rsvps.size)) + t(:planning_to_attend)
               %span.light= " | "
               - if user_signed_in?
                 = link_to "[" + t(:i_plan_to_attend) + "]", rsvp_meeting_path(meeting), method: :post
@@ -44,9 +44,9 @@
             .blurb
               = raw truncate_html(post.body, length: 300)
             .meta
-              = pluralize(post.total_comment_count, 'comment')
+              = pluralize(post.total_comment_count, t(:comment, count: post.total_comment_count))
               %span.light= "| "
-              = pluralize(post.notifications.size, 'person') + ' watching'
+              = pluralize(post.notifications.size, t(:people, count: post.notifications.size)) + t(:watchig)
       .column
         .add_post
           = link_to new_post_path do

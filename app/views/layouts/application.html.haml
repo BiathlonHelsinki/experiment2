@@ -55,11 +55,11 @@
     %footer
       .row
         .small-6.columns.small-centered.text-center
-          Experiment #2 will be powered by Biathlon.
+          = t :footer_blurb
           %span.divider |
           = link_to fa_icon('github'), 'https://github.com/BiathlonHelsinki/experiment2'
           %br/
-          admin {at} temporary dotfi to contact us in the meantime
+          = t :footer_contact
     :javascript
           $(document).ready(function() {
             #{yield :jquery}

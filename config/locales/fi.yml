@@ -491,7 +491,7 @@ fi:
   amount_available_to_pledge: 'Sinulla on %{number}Ŧ käytettävissäsi.'
   multiday_experiments: 'Tähän kokeiluun liittyen on ehdotettu useita tapaamisia. Temporaryllä usean päivän kokeilut maksavat Tempsejä jokainen tapaamispäivä siten, että seuraavat päivät saavat edeltävään verrattuna 10 % alennuksen (kunnes päästään 20Ŧ:hen joka on minimimaksu).'
   indefinite_proposal: 'Tässä ehdotuksessa ei ole määritetty kuinka monta tapaamista siihen liittyy, joten se jatkuu toistaiseksi.'
-  
+
   # used in the phrase  'this experiment has happened 6 times'
   meeting_time_instance:
     zero: 'kertaa'
@@ -593,10 +593,10 @@ fi:
   you_must_register_in_advance: 'Rekisteröityminen täytyy tehdä ennakkoon!'
   also_meets: 'Myös tapaa:'
   x_earned: "%{number} Ŧ tienattu"
-  anonymous_person_who_arrived_at_x: 'Anonyymi henkilö, joka saapui %{time_of_arrival}'  
+  anonymous_person_who_arrived_at_x: 'Anonyymi henkilö, joka saapui %{time_of_arrival}'
   small_back_room_blurb: 'Temporaryn takahahuoneen voi varata kuka tahansa rekisteröitynyt jäsen hintaan 25Ŧ per day.'
   room_specs: 'Tätä huonetta (koko noin 18m%{squared}) voi käyttää mihin tahansa luoviin tarkoituksiin, kokouksiin, jne. Varaamalla huoneen saat sen käyttöösi 24 tunniksi. Jos päähuoneessa on meneillään muita aktiviteetteja pyydämme, että otat molemminpuolisesti toisenne huomioon'
-  
+
   room_blurb_2: 'Kuka tahansa jäsen voi varata huoneen maksimissaan kolmeksi päiväksi viikossa. Varataksesi huoneen, klikkaa kalenterista haluamaasi päivää ja katso onko huone vapaana'
   are_you_going: 'Aitko osallistua?'
   you_are_going: 'Aiot osallistua'
@@ -660,12 +660,12 @@ fi:
   temporary_survey_explanation_future: 'Temporary will close its doors on 2 September 2017, making the entire experiment exactly one year in length. But this is only a beginning, not the end. The next experiment will be collectively designed by a larger working group and will hopefully launch in January 2018.'
 
   temporary_survey_explanation_past: 'Temporary ran from September 2016 to September 2017. There are plans to continue the core ideas of an open 24/7 workspace, decentralised programming and a participation-based model beginning in 2018. This next experiment will be collectively designed by a larger working group and will be designed with longevity in mind.'
-    
+
   why_this_survey: 'To assist in this design, Temporary has designed this short questionnaire. We are very curious to hear your feedback: how you felt about Temporary (whether you participated zero, once or 200 times), what you are seeking from culture, and other factors. Please answer as honestly and as detailed as possible. Positive feedback is nice, but we are really interested in different perspectives and ideas, so write as much as you would like!'
-  
+
   never_visited: 'Et ole koskaan käynyt tai osallistunut mihinkään Temporaryssä.'
   what_could_have_brought_you: 'Mitä Temporary olisi voinut tehdä toisin, että olisit osallistunut sen toimintaan, joko osallistujana tai tuottajana?'
-  
+
   you_participated_in_x_experiments: 'Osallistuit %{number} %{experiment}.'
   experiment_mihin:
     zero: 'kokeiluun'
@@ -704,4 +704,46 @@ fi:
   complete: 'Send completed survey'
   you_have_started_the_survey: 'You have started the survey. Please complete it before the closing party!'
   answers_were_saved: 'Your answers have been saved. You can go back to finish up until the party starts.'
-  you_can_save_answers: 'You can save your answers at any time to go back later. When you are finished, click SEND COMPLETED SURVEY to finish.'  
+  you_can_save_answers: 'You can save your answers at any time to go back later. When you are finished, click SEND COMPLETED SURVEY to finish.'
+  save_answers: 'Save answers to finish later'
+  temporary_one_year: 'Temporary operated for one year, from September 2016-2017.'
+  temporary_the_future: 'It is now closed, but a venture continuing much of the concept is planned for 2018.'
+  become_part_of_it: 'Come and be part of it!'
+  where_was_it: 'Where was it?'
+  posted_by: 'Posted by %{user}'
+  user_says_on: 'At %{date}, %{user} said...'
+  reply_to_this: 'Reply to this...'
+  add_a_comment_to_this_discussion: 'Add a comment to this discussion ...'
+  this_post_regards_a_meeting: 'This discussion refers to a meeting:'
+  current_discussions: '[Active discussions]'
+  next_general_meeting: 'Next general meeting'
+  existing_temporary_logins_work: '(Your account from temporary.fi has been transfered over. Use the same method as before to sign in.)'
+  connect_via: 'Connect via:'
+  this_meeting_is_discussed_in_these_topics: 'This meeting is discussed in the following topics:'
+  this_meeting_has_x_comments: 'This meeting has %{count} %{comment}.'
+  general_meeting_discussion: 'You can discuss general things relating to the meeting here. More specific topics may be found in the list above.'
+  signed_in_as: 'Signed in as: '
+  about_experiment_2: 'About Experiment #2'
+  whats_next: 'What happens next?'
+  discussion: '[Discussion]'
+  home: '[Home]'
+  start_a_new_topic: 'Start a new topic'
+  start_topic_disclaimer: 'You can start a new topic for discussion here. This can be simply an online forum or a way to organise a working group to approach a design topic for Experiment #2. '
+  topic_description: 'Description of this topic:'
+  description_blurb: 'canIf you are organising a working group, please state clearly the goals and intentions of it.'
+  topic_meeting:  'Does this topic refer to a specific meeting?'
+  can_add_later: 'You can always add this later.'
+  post_topic: 'Post topic!'
+  planning_to_attend: ' planning to attend' # as in "3 people are planning to attend" or "1 person is planning to attend"
+  watching: ' watching' # as in "3 people watching"
+  footer_blurb: 'Experiment #2 will be powered by Biathlon.'
+  footer_contact: 'admin {at} temporary dotfi to contact us in the meantime'
+  comment_in_main_thread: 'Comment in main thread'
+  comment_this_subthread: 'Comment in this sub-thread'
+  start_new_thread: 'Start a sub-thread'
+  show_x_comments: 'Show %{count} comments...'
+  receive_email_notifications_question: 'Would you like to receive email notifications when this experiment is updated?'
+  receive_email_notifications_question_proposal: 'Would you like to receive email notifications when this proposal has new activity?'
+  receive_email_notifications_question_post: 'Would you like to receive email notifications when this topic is updated?'
+  send_me_an_email_when_there_is_a_new: 'Send an email to %{email_address} when there is a new: '
+  scheduled_meeting: 'meeting added to the calendar'

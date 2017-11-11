@@ -17,7 +17,7 @@
           .description
             = raw @meeting.description
         .meta
-          = pluralize(@meeting.rsvps.size, 'person') + ' planning to attend'
+          = pluralize(@meeting.rsvps.size, t(:person, count: @meeting.rsvps.size)) + t(:planning_to_attend)
           %span.light= " | "
           - if user_signed_in?
             - if @meeting.rsvps.map(&:user).include?(current_user)
@@ -33,7 +33,7 @@
               .participant_grid
                 .image
                   - if attended.avatar?
-                    = image_tag attended.avatar.url(:box).gsub(/development/, 'production')
+                    = image_tag attended.avatar.url(:box)
                   - else
                     = image_tag image_path('user_missing_large.png')
                 .participant_overlay.text-center

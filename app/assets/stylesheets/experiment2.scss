@@ -232,6 +232,9 @@ article.post_single, article.meeting_single {
       font-weight: bold;
       border-bottom: 2px solid black;
       padding: 1rem;
+      .since {
+        font-size: 0.8rem;
+      }
     }
     .body {
       padding: 1rem;
@@ -622,18 +625,20 @@ footer {
         input {
           border: 2px solid $black;
         }
-        a.button, input[type=submit] {
-          border: 2px solid $black;
-          font-family: $sourcecode;
-          background-color: white;
-          color: $black;
-          padding: 0.5rem;
-          &:hover {
-            background-color: $black;
-            color: white;
-          }
-        }
+
       }
     }
+  }
+}
+
+a.button, input[type=submit] {
+  border: 2px solid $black;
+  font-family: $sourcecode;
+  background-color: white;
+  color: $black;
+  padding: 0.5rem;
+  &:hover {
+    background-color: $black;
+    color: white;
   }
 }

@@ -8,7 +8,7 @@
             .row
               .small-1.columns.user_box
                 = link_to image_tag(comment.user.avatar.url(:box).gsub(/development/, 'production')), comment.user, target: :_blank, class: :comment_avatar
-  
+
 
               .small-11.columns
                 .comment_type
@@ -31,17 +31,17 @@
                   .small-8.columns
                     %button.button{type: :button, :'data-toggle' => 'reply_dropdown_' + comment.id.to_s }= "Comment"
                     .dropdown-pane{id:'reply_dropdown_' + comment.id.to_s, :'data-dropdown' => '', :'data-close-on-click' => true, :'data-auto-focus' => true}
-                      = link_to 'Comment in main thread', '#', onclick: "$('.dropdown-pane').foundation('close');$(document).scrollTo('#main_thread', 800);return false;", class: [:button, :tiny, :secondary]
+                      = link_to t(:comment_in_main_thread), '#', onclick: "$('.dropdown-pane').foundation('close');$(document).scrollTo('#main_thread', 800);return false;", class: [:button, :tiny, :secondary]
                       %br/
                       - if depth > 0
                         - if depth == 1
-                          = link_to 'Comment in this sub-thread', '#', onClick: "$('.dropdown-pane').foundation('close');$('#comment_#{comment.item.id.to_s}.occluded_form').slideToggle();$(document).scrollTo('#comment_#{comment.item.id.to_s}.occluded_form', 800);return false;", class: [:button, :tiny, :secondary]
+                          = link_to t(:comment_this_subthread), '#', onClick: "$('.dropdown-pane').foundation('close');$('#comment_#{comment.item.id.to_s}.occluded_form').slideToggle();$(document).scrollTo('#comment_#{comment.item.id.to_s}.occluded_form', 800);return false;", class: [:button, :tiny, :secondary]
 
                         - else
-                          = link_to 'Comment in this sub-thread', '#', onClick: "$('.dropdown-pane').foundation('close');$('#comment_#{comment.item.id.to_s}.occluded_form').slideToggle();$(document).scrollTo('#comment_#{comment.item.id.to_s}.occluded_form', 800);return false;", class: [:button, :tiny, :secondary]
+                          = link_to t(:comment_this_subthread), '#', onClick: "$('.dropdown-pane').foundation('close');$('#comment_#{comment.item.id.to_s}.occluded_form').slideToggle();$(document).scrollTo('#comment_#{comment.item.id.to_s}.occluded_form', 800);return false;", class: [:button, :tiny, :secondary]
                         %br/
                       - if comment.comments.empty? && depth < 2
-                        = link_to 'Start a sub-thread', '#', onClick: "$('.dropdown-pane').foundation('close');$('#comment_#{comment.id.to_s}.occluded_form').slideToggle();return false;", class: [:button, :tiny, :secondary]
+                        = link_to t(:start_new_thread), '#', onClick: "$('.dropdown-pane').foundation('close');$('#comment_#{comment.id.to_s}.occluded_form').slideToggle();return false;", class: [:button, :tiny, :secondary]
 
 
         - unless comment.comments.empty?
@@ -51,6 +51,6 @@
                 .row
                   .small-2.columns.horizontal_line
                   .small-10.columns
-                    .show_link= link_to "Show #{comment.comments.size} comments...", '#', onClick: "javascript:$('#comment_thread_#{comment.id.to_s}').show();$(this).hide();return false;"
+                    .show_link= link_to t(:show_x_comments, count: comment.comments.size), '#', onClick: "javascript:$('#comment_thread_#{comment.id.to_s}').show();$(this).hide();return false;"
           %ul{id: 'comment_thread_' + comment.id.to_s, class: comment.comments.size > 2 ? :hidden : false}= render partial: 'shared/comment', collection: comment.comments.order(created_at: :asc), locals: {depth: depth + 1, last: comment.comments.last}
         .occluded_form[comment]= render partial: 'shared/comments_and_form', locals: {depth: depth + 1, commentable: comment}

@@ -601,7 +601,15 @@ If you suggest an exact date, we will do our best when scheduling to co-exist wi
   start_a_new_topic: 'Start a new topic'
   start_topic_disclaimer: 'You can start a new topic for discussion here. This can be simply an online forum or a way to organise a working group to approach a design topic for Experiment #2. '
   topic_description: 'Description of this topic:'
-  description_blurb: 'If you are organising a working group, please state clearly the goals and intentions of it.'
+  description_blurb: 'canIf you are organising a working group, please state clearly the goals and intentions of it.'
   topic_meeting:  'Does this topic refer to a specific meeting?'
   can_add_later: 'You can always add this later.'
   post_topic: 'Post topic!'
+  planning_to_attend: ' planning to attend' # as in "3 people are planning to attend" or "1 person is planning to attend"
+  watching: ' watching' # as in "3 people watching"
+  footer_blurb: 'Experiment #2 will be powered by Biathlon.'
+  footer_contact: 'admin {at} temporary dotfi to contact us in the meantime'
+  comment_in_main_thread: 'Comment in main thread'
+  comment_this_subthread: 'Comment in this sub-thread'
+  start_new_thread: 'Start a sub-thread'
+  show_x_comments: 'Show %{count} comments...'
