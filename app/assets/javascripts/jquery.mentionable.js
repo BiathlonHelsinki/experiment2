@@ -67,7 +67,7 @@
 
     // remove other mentionable text area before enable current one
     if($("textarea.mentionable-textarea").length){
-  
+
       $("textarea.mentionable-textarea").val("");
       $("textarea.mentionable-textarea").off("keypress");
       $("textarea.mentionable-textarea").off("keyup");
@@ -94,7 +94,9 @@
 
       switch(e.keyCode){
         case KEY.ATSIGN:
+
           initNameCaching('@');
+
           break;
         case KEY.HASH:
           initNameCaching('#');
@@ -233,6 +235,7 @@
       userList.html("");
       var data = {};
       if(keyword != undefined){
+
         data[options.parameterName] = keyword.substring(0, keyword.length);
       }
       if(onComplete != undefined){
@@ -241,6 +244,7 @@
       else{
         $.getJSON(targetURL, data, function(data){
           fillItems(data);
+    
         });
       }
       bindItemClicked();
