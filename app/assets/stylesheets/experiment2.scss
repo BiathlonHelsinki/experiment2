@@ -82,7 +82,7 @@ article.single_page {
     }
     .body {
       font-family: $montserrat;
-      p {
+      p, ul, ol {
         clear: both;
       }
       h3 {
