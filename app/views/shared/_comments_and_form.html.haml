@@ -4,7 +4,7 @@
   - if can? :create, Comment
     = content_for :jquery do
       :plain
-        $('#ci_#{commentable.class.to_s}_#{commentable.id.to_s}').on('click', function() {
+        $('#ci_#{commentable.class.to_s}_#{commentable.id.to_s}').one('click', function() {
 
           $('#ci_#{commentable.class.to_s}_#{commentable.id.to_s}').mentionable("/users/mentions", {id: 'mi_#{commentable.class.to_s}_#{commentable.id.to_s}', position: 'right'});
         });
@@ -37,7 +37,7 @@
                     .comment_wrapper
                       = t :add_a_comment_to_this_discussion
                       .comment_input{id: "ci_#{commentable.class.to_s}_#{commentable.id.to_s}", contenteditable: true}
-                  
+
                     = f.input :content, :label => false, input_html: {:required => '', class: :comment_input_textarea, id: "cit_#{commentable.class.to_s}_#{commentable.id.to_s}" }
                     = f.input :image, :label => t(:attach_image_to_comment)
                     = f.input :attachment, :label => t(:attach_attachment_to_comment)

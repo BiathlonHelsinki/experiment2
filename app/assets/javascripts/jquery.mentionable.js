@@ -21,7 +21,7 @@
   var targetURL             = null;
   var onComplete            = null;
   var options               = null;
-  var debugMode             = true;
+  var debugMode             = false;
   var debuggerBlock         = "<div id='mentionable-debugger'></div>"
   var caretStartPosition    = 0;
   var keyRespondingTimeOut  = null;
@@ -63,6 +63,7 @@
    *
    */
   $.fn.mentionable = function(usersURL, opts, onCompleteFunction) {
+
     textArea  = this;
 
     // remove other mentionable text area before enable current one
@@ -122,8 +123,10 @@
             initNameCaching('#');
           }
           else{
+
             // append pressed character to cache
             if(cachedName != ""){
+
               cachedName += String.fromCharCode(e.charCode);
             }
           }
@@ -134,6 +137,7 @@
       fullCachedName = cachedName;
     });
     this.keyup(function(e){
+
        // $('#position').text(currentCaretPosition());
        // $('#position_plain').text(currentCaretPositionPt());
       switch(e.keyCode){
@@ -164,7 +168,7 @@
           caretMoveRight();
           break;
         case KEY.DOWN:
-        caretMoveDown();
+          caretMoveDown();
           break;
       }
     });
@@ -237,6 +241,7 @@
       if(keyword != undefined){
 
         data[options.parameterName] = keyword.substring(0, keyword.length);
+
       }
       if(onComplete != undefined){
         $.getJSON(targetURL, data, onComplete);
@@ -244,7 +249,7 @@
       else{
         $.getJSON(targetURL, data, function(data){
           fillItems(data);
-    
+
         });
       }
       bindItemClicked();
@@ -513,6 +518,7 @@
     clearTimeout(keyRespondingTimeOut);
     keyRespondingTimeOut = setTimeout(
       function(){
+
         populateItems(cachedName);
       },
       keyRespondTime
