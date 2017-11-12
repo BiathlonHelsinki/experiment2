@@ -73,6 +73,7 @@ gem 'capistrano3-puma'
 
 
 gem "audited", "~> 4.5"
+gem 'auto_html'
 gem 'awesome_nested_set'
 gem 'cancancan'
 gem 'carrierwave'

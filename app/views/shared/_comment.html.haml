@@ -15,7 +15,8 @@
                   = raw t(:user_says_on, :user => comment.user.display_name, date: l(comment.created_at, format: :long))
 
                 .comment_content
-                  = simple_format(comment.content_linked)
+                  - link_filter = AutoHtml::Link.new(target: '_blank')
+                  = raw link_filter.call(simple_format(comment.content_linked))
                   - if user_signed_in?
                     - if can?(:destroy, comment) && comment.comments.empty?
                       = link_to fa_icon('trash'), comment, method: :delete, data: {confirm: t(:are_you_sure_delete_comment)} #, class: [:button, :tiny, :alert]
