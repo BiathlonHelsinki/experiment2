@@ -616,3 +616,4 @@ If you suggest an exact date, we will do our best when scheduling to co-exist wi
   join_experiment_2: 'Join Experiment #2!'
   no_social_spiel: 'While Experiment #2 encourages independence from corporate Internet overlords, we still encourage you to use your existing accounts with either <a href="/users/auth/facebook">Facebook</a>, <a href="/users/auth/twitter">Twitter</a>, <a href="/users/auth/github">GitHub</a> or <a href="/users/auth/google_oauth2">Google</a> for the simple reason that it makes our lives much easier to outsource your identity verification.'
   social_spiel2: 'Yet if you do not use any of the above services - and again, we not only respect that but support it!! - then we offer this means to create an account directly with Experiment #2 below.'
+  close: 'Close'

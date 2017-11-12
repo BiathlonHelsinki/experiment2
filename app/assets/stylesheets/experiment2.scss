@@ -377,10 +377,17 @@ article.post_single, article.meeting_single {
 
             }
             .comment_content {
-
+              &[data-readmore] {
+                overflow-y: hidden;
+              }
               font-size: 0.9rem;
               color: #444;
               padding: 0.9rem 1.8rem;
+              p {
+                font-size: 1rem;
+                line-height: 1.8;
+                font-family: $montserrat;
+              }
               p img {
                 max-height: 30px;
                 margin-left: 0.4rem;
@@ -645,9 +652,21 @@ a.button, button.button, input[type=submit] {
   background-color: white;
   color: $black;
   padding: 0.5rem;
+  &.readmore {
+    text-decoration: none !important;
+    margin-left: 15px;
+    background-color: $black;
+    color: white;
+    &:hover {
+      background-color: white;
+      color: $black;
+      text-decoration: underline;
+    }
+  }
   &:hover {
     background-color: $black;
     color: white;
+    text-decoration: underline;
   }
 }
 
