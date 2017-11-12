@@ -23,7 +23,7 @@
                 = image_tag @user.avatar.url(:medium)
 
               -else
-                = image_tag '/icons/missing_user.png'
+                = image_tag '/icons/user_missing.png'
             .small-10.medium-8.columns
               - unless @user.website.blank?
                 %div
