@@ -216,9 +216,9 @@
       userList.css("top", 0);
     }
     else if (options.position == "flush"){
-
-      userList.css("left", 400);
+      userList.css("left", textArea.outerWidth() - 100);
       userList.css("top", 25);
+      userList.css("width", textArea.outerWidth() / 2);
     }
     else if(options.position == "bottom"){
       userList.css("left", 0);
