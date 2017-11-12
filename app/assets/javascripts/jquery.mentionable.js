@@ -81,7 +81,7 @@
       // "id" : "mentioned-user-list",
       "minimumChar" : 2,
       "parameterName" : "mentioning",
-      "position" : "bottom"
+      "position" : "flush"
     }, opts);
     userListWrapper = $("<ul class='mentioned-user-list' id='" + options.id + "'></ul>");
 
@@ -214,6 +214,11 @@
     else if(options.position == "right"){
       userList.css("left", textArea.outerWidth());
       userList.css("top", 0);
+    }
+    else if (options.position == "flush"){
+
+      userList.css("left", 400);
+      userList.css("top", 25);
     }
     else if(options.position == "bottom"){
       userList.css("left", 0);

@@ -6,7 +6,7 @@
       :plain
         $('#ci_#{commentable.class.to_s}_#{commentable.id.to_s}').one('click', function() {
 
-          $('#ci_#{commentable.class.to_s}_#{commentable.id.to_s}').mentionable("/users/mentions", {id: 'mi_#{commentable.class.to_s}_#{commentable.id.to_s}', position: 'right'});
+          $('#ci_#{commentable.class.to_s}_#{commentable.id.to_s}').mentionable("/users/mentions", {id: 'mi_#{commentable.class.to_s}_#{commentable.id.to_s}', position: 'flush'});
         });
 
 
