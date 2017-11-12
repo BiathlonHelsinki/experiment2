@@ -67,6 +67,7 @@
 
     // remove other mentionable text area before enable current one
     if($("textarea.mentionable-textarea").length){
+  
       $("textarea.mentionable-textarea").val("");
       $("textarea.mentionable-textarea").off("keypress");
       $("textarea.mentionable-textarea").off("keyup");
