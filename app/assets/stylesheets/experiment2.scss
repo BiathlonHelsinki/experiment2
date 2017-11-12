@@ -82,7 +82,31 @@ article.single_page {
     }
     .body {
       font-family: $montserrat;
-
+      p {
+        clear: both;
+      }
+      h3 {
+        font-family: $sourcecode;
+        font-size: 1.25rem;
+        border-bottom: 2px solid $black;
+        padding: 1rem 0 0 0;float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      h4 {
+        font-family: $sourcecode;
+        font-size: 1.25rem;
+        border-top: 2px dashed $black;
+        border-bottom: 2px dashed $black;
+        padding: 0.8rem 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      a {
+        font-weight: bold;
+        text-decoration: underline !important;
+      }
       padding: 1rem;
     }
   }
