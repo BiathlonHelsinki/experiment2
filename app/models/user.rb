@@ -258,11 +258,13 @@ class User < ActiveRecord::Base
   end
 
   def update_avatar_attributes
+
     if avatar.present? && avatar_changed?
+
       if avatar.file.exists?
         self.avatar = avatar.file.content_type
-        self.avatar_size = avatar.file.size
-        self.avatar_width, self.avatar_height = `identify -format "%wx%h" #{avatar.file.path}`.split(/x/)
+        self.avatar_size = avatar.file.size rescue 0
+        self.avatar_width, self.avatar_height = `identify -format "%wx%h" #{avatar.file.path}`.split(/x/) rescue nil
       end
     end
   end

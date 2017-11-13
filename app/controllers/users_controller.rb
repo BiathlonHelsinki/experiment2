@@ -29,6 +29,7 @@ class UsersController < ApplicationController
       render plain: 'This is not you.'
     end
   end
+
   def edit
     # users can edit their own profile, somewhat
     @user = User.friendly.find(params[:id])
@@ -65,7 +66,7 @@ class UsersController < ApplicationController
       # render json: @events.uniq.map(&:as_mentionable).to_json
       @posts = Post.joins(:translations).where("lower(post_translations.title) LIKE '%" + params[:mentioning][1..-1].downcase + "%'")
       render json: @posts.uniq.map(&:as_mentionable).to_json
-    
+
     end
   end
 
@@ -95,7 +96,7 @@ class UsersController < ApplicationController
         flash[:error] = ''
         flash[:warning] = ''
         flash[:notice] = 'Profile info saved.'
-        redirect_to edit_user_path(@user)
+        redirect_to @user
       else
         flash[:error] = @user.errors.full_messages.join('. ')
         render template: 'users/edit'

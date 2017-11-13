@@ -24,6 +24,10 @@
 
               -else
                 = image_tag '/icons/user_missing.png'
+              %br/
+              - if @user == current_user
+                = semantic_form_for @user, html: {multipart: true } do |f|
+                  = f.input :avatar, label: t(:change_this_image)
             .small-10.medium-8.columns
               - unless @user.website.blank?
                 %div
@@ -63,3 +67,12 @@
                     %strong= t :authentications
                     - @user.authentications.each do |auth|
                       %p= "provider: #{auth.provider}, username: #{auth.username}, uid: #{auth.uid}"
+
+
+- if @user == current_user
+  = content_for :jquery do
+    :plain
+      $('#user_avatar').change(function() {
+        
+        $('#edit_user_#{@user.id.to_s}').submit();
+      });
