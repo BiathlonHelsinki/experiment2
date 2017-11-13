@@ -14,7 +14,7 @@
           .image= image_tag @post.image.url
         .body
           .description.small-12.medium-8.columns
-            = raw @post.body
+            = raw simple_format(@post.body)
             - if @post.meeting
               %fieldset.meetings
                 %label
