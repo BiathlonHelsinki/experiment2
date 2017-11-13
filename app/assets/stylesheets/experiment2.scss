@@ -203,7 +203,10 @@ article.post_single, article.meeting_single {
       margin: 1rem;
       border: 2px solid $black;
       .image {
-        margin: 0 0 0 0.5rem;
+        margin: 0;
+      }
+      .participant_overlay {
+        padding: 0.5rem 0;
       }
     }
     .linked_topics {
