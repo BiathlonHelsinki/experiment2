@@ -35,7 +35,7 @@
                   - if attended.avatar?
                     = image_tag attended.avatar.url(:box)
                   - else
-                    = image_tag '/missing_user.png'
+                    = image_tag '/icons/user_missing.png'
                 .participant_overlay.text-center
                   = link_to attended.display_name, attended, target: :_blank
                 -# if current_user == attended
