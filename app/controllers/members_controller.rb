@@ -31,6 +31,7 @@ class MembersController < ApplicationController
 
 
     if @member.save
+      GroupMailer.new_member(@group, @member).deliver_now
       flash[:notice] = t(:member_has_been_added)
       redirect_to '/members'
     else
