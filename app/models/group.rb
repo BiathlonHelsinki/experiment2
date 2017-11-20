@@ -9,7 +9,7 @@ class Group < ApplicationRecord
   friendly_id :name , :use => [ :slugged, :finders, :history]
   mount_uploader :avatar, ImageUploader
   before_save :update_avatar_attributes
-  process_in_background :avatar
+  # process_in_background :avatar
   validates_presence_of :name
   validate :uniqueness_of_a_name
   after_create :add_to_activity_feed
