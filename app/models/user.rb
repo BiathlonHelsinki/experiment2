@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   before_validation :copy_password
   mount_uploader :avatar, ImageUploader
   before_save :update_avatar_attributes
-  process_in_background :avatar
+  # process_in_background :avatar
   # store_in_background :avatar
   after_create :add_to_activity_feed
   has_many :comments
