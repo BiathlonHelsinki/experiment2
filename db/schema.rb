@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107154608) do
+ActiveRecord::Schema.define(version: 20171120130751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -256,6 +256,25 @@ ActiveRecord::Schema.define(version: 20171107154608) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.boolean "active"
+    t.text "description"
+    t.string "avatar"
+    t.string "avatar_content_type"
+    t.integer "avatar_size"
+    t.integer "avatar_width"
+    t.integer "avatar_height"
+    t.string "slug"
+    t.string "website"
+    t.string "twitter_name"
+    t.string "geth_pwd"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "long_name"
+    t.string "avatar_tmp"
+  end
+
   create_table "hardwares", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -397,6 +416,18 @@ ActiveRecord::Schema.define(version: 20171107154608) do
     t.datetime "updated_at", null: false
     t.index ["era_id"], name: "index_meetings_on_era_id"
     t.index ["place_id"], name: "index_meetings_on_place_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "source_type"
+    t.bigint "source_id"
+    t.bigint "user_id"
+    t.integer "access_level"
+    t.integer "notification_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["source_type", "source_id"], name: "index_members_on_source_type_and_source_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
   end
 
   create_table "nfcs", id: :serial, force: :cascade do |t|
@@ -805,6 +836,7 @@ ActiveRecord::Schema.define(version: 20171107154608) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "avatar_tmp"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -846,6 +878,7 @@ ActiveRecord::Schema.define(version: 20171107154608) do
   add_foreign_key "instances_organisers", "instances"
   add_foreign_key "meetings", "eras"
   add_foreign_key "meetings", "places"
+  add_foreign_key "members", "users"
   add_foreign_key "nfcs", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "onetimers", "users"

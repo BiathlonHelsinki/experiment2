@@ -1,23 +1,83 @@
 @import 'variables';
 
-.banner_bar {
-  background-color: $crimson;
-  margin: 0 0 2.5rem 0;
-  font-size: 1.4rem;
-  padding: 1rem 0;
-  color: white;
-  a {
-    color: white;
-    &:hover {
-      color: #999;
-    }
-  }
+h1, h2, h3, h4, h5, h6 {
+  font-family: $sourcecode;
+}
+
+li.ui-menu-item {
+  list-style-type: none;
+  font-family: $sourcecode;
 }
 form {
+  border: none;
+  li#member_username_input {
+    float: left;
+  }
+  #clear_click {
+    float: left;
+    clear: none;
+    display: none;
+    padding-top: 2rem;
+    margin-left: 0.5rem;
+  }
   li {
     list-style-type: none;
   }
+  input, textarea , select {
+    background-color: white;
+    border: 2px solid $black;
+    font-weight: bold;
+    &.is-invalid-input {
+      outline: 1px solid red;
+    }
+  }
+  textarea {
+    height: 250px;
+  }
+  input[type=submit] {
+    cursor:pointer;
+    padding: 0.8rem;
+    font-size: 1rem;
+    &:hover {
+      background-color: $black;
+      color: white;
+    }
+    &[disabled] {
+      color: #888;
+      border-color: #888;
+      &:hover {
+        background-color: #888;
+        color: #444;
+      }
+    }
+  }
+  abbr[title=required] {
+    display: none;
+  }
+  .validation_error {
+    color: red;
+    font-size: 1rem;
+    margin: 0.4rem 0;
+
+  }
+  p.inline-hints {
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  p.error_name {
+    display: none;
+  }
+  label.label {
+    padding: 0; margin: 0;
+    font-family: $sourcecode;
+    color: $black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background-color: white;
+  }
 }
+
+
 
 .comment_wrapper {
   position: relative;
@@ -129,39 +189,7 @@ article.post_single, article.meeting_single {
       z-index: -1;
       outline: 2px solid $black;
     }
-    form {
-      border: none;
-      input, textarea , select {
-        background-color: white;
-        border: 2px solid $black;
-        font-weight: bold;
-        &.is-invalid-input {
-          outline: 1px solid red;
-        }
-      }
-      textarea {
-        height: 250px;
-      }
-      input[type=submit] {
-        cursor:pointer;
-        padding: 0.8rem;
-        font-size: 1rem;
-        &:hover {
-          background-color: $black;
-          color: white;
-        }
-      }
-      p.inline-hints {
-        font-size: 0.8rem;
-        margin-bottom: 2rem;
-      }
-      label.label {
-        padding: 0; margin: 0;
-        font-family: $sourcecode;
-        color: $black;
-        background-color: white;
-      }
-    }
+
     .image {
       margin: 1rem 0;
     }
@@ -705,5 +733,20 @@ a.button, button.button, input[type=submit] {
   }
   .home .post .title, article.posts_index .post .title {
     font-size: 1.15rem;
+  }
+}
+
+.member_services_index {
+  padding: 3rem 0;
+  .group {
+    padding: 1rem 0;
+  }
+}
+
+.group_profile_member_list {
+  .member {
+    .participant_overlay {
+      font-size: 0.7rem;
+    }
   }
 }

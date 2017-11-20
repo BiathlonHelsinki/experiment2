@@ -20,6 +20,7 @@ gem 'foundation-datetimepicker-rails', '0.2.4'
 gem 'haml'
 gem "haml-rails"#, "~> 0.9"
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -60,10 +61,13 @@ group :development do
   gem 'letter_opener'
   gem 'ruby_parser', '>= 3.0.1'
   gem 'thin'
+  gem 'pry-rails' # use pry when running `rails console`
+  gem 'pry-byebug'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+#gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'capistrano'
 gem 'capistrano-rails'#, '1.1.3'
@@ -79,6 +83,7 @@ gem 'cancancan'
 gem 'carrierwave'
 gem 'carrierwave_backgrounder', :git => 'https://github.com/lardawge/carrierwave_backgrounder.git'
 gem 'carrierwave-aws'
+
 gem 'chosen-rails'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'country_select'
@@ -111,6 +116,7 @@ gem "omniauth-google-oauth2"
 gem "paranoia", '~> 2.4.0'
 gem 'pg_search'
 gem 'rack-utf8_sanitizer'
+gem 'rails-jquery-autocomplete'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'rolify'
 gem 'simple_token_authentication', git: 'https://github.com/gonzalo-bulnes/simple_token_authentication.git', branch: 'master'

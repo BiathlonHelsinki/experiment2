@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:mentions]
+  before_action :authenticate_user!, except: [:mentions, :check_unique]
 
 
   def buy_photoslot
@@ -27,6 +27,14 @@ class UsersController < ApplicationController
       end
     else
       render plain: 'This is not you.'
+    end
+  end
+
+  def check_unique
+    if User.where("lower(username) = ?", params[:username].downcase).exists? || Group.where("lower(name) = ?",  params[:username].downcase).exists?
+      render json:{message: 'Username is taken'}, status: 422
+    else
+      head :ok
     end
   end
 
@@ -95,6 +103,7 @@ class UsersController < ApplicationController
       if @user.update_attributes(user_params)
         flash[:error] = ''
         flash[:warning] = ''
+    
         flash[:notice] = 'Profile info saved.'
         redirect_to @user
       else

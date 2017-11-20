@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   validates_uniqueness_of :email
   validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
+  validate :uniqueness_of_a_name
   # validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   extend FriendlyId
   friendly_id :username , :use => [ :slugged, :finders, :history]
@@ -35,6 +36,8 @@ class User < ActiveRecord::Base
   before_validation :copy_password
   mount_uploader :avatar, ImageUploader
   before_save :update_avatar_attributes
+  process_in_background :avatar
+  # store_in_background :avatar
   after_create :add_to_activity_feed
   has_many :comments
   validates_presence_of :geth_pwd
@@ -44,6 +47,12 @@ class User < ActiveRecord::Base
   has_many :userphotos
   has_many :userphotoslots
   has_one :survey
+  has_many :members, dependent: :destroy
+  has_many :groups, through: :members, source: :source, source_type: 'Group'
+
+  def uniqueness_of_a_name
+    self.errors.add(:username, 'is already taken') if Group.where(name: self.username).exists?
+  end
 
   def as_mentionable
     {
@@ -257,13 +266,15 @@ class User < ActiveRecord::Base
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'], :username => identifier)
   end
 
+  private
+
   def update_avatar_attributes
 
     if avatar.present? && avatar_changed?
 
       if avatar.file.exists?
-        self.avatar = avatar.file.content_type
-        self.avatar_size = avatar.file.size rescue 0
+        self.avatar_content_type = avatar.file.content_type
+        self.avatar_size = avatar.file.size
         self.avatar_width, self.avatar_height = `identify -format "%wx%h" #{avatar.file.path}`.split(/x/) rescue nil
       end
     end

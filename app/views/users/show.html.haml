@@ -73,6 +73,6 @@
   = content_for :jquery do
     :plain
       $('#user_avatar').change(function() {
-        
+
         $('#edit_user_#{@user.id.to_s}').submit();
       });

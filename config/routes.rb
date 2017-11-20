@@ -14,6 +14,15 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :groups do
+    resources :members do
+      member do
+        get :leave
+        post :remove
+      end
+    end
+  end
+
   resources :meetings do
     resources :comments
     member do
@@ -25,8 +34,14 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :members do
+    get :autocomplete_user_username, on: :collection
+  end
+
+
   resources :pages
-  
+
   resources :posts do
     resources :comments
     resources :users do
@@ -35,6 +50,7 @@ Rails.application.routes.draw do
   end
   resources :users do
     collection do
+      get :check_unique
       get :mentions
     end
   end

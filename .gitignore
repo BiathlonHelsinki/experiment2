@@ -77,3 +77,4 @@ sync_db
 lib/tasks/temporary.rake
 biathlon.sql
 public/assets/*
+public/images/*
