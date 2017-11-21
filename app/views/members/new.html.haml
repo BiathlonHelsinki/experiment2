@@ -36,7 +36,12 @@
                 = t(:member, count: 1)
               - else
                 = member.access_level.to_s
-              = link_to t(:remove_member_from_group), [@group, member], method: :delete, data: {confirm: t(:are_you_sure) }, class: [:button, :alert]
+              - unless @group.members.find_by(user: current_user).nil?
+                - if @group.members.find_by(user: current_user).access_level == Experiment2::Access::OWNER
+                  = semantic_form_for [@group,member] do |f|
+                    = f.input :access_level, as: :select, collection: [[t(:member, count: 1), 10], [ t(:admin), 30], [ t(:owner), 50]]
+                    = f.submit t(:change)
+                  = link_to t(:remove_member_from_group), [@group, member], method: :delete, data: {confirm: t(:are_you_sure) }, class: [:button, :alert]
 
 = content_for :jquery do
   :plain

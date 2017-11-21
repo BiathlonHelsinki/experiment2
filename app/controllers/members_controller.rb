@@ -89,11 +89,20 @@ class MembersController < ApplicationController
     @member = Member.new(source: @group)
   end
 
+  def update
+    @member = @group.members.find(params[:id])
+    if @member.update_attributes(member_params)
+      flash[:notice] = t(:member_access_level_has_been_updated)
+    else
+      flash[:error] = @member.errors.full_messages
+    end
+    redirect_to @group
+  end
 
   protected
 
   def member_params
-    params.require(:member).permit(:username)
+    params.require(:member).permit(:username, :access_level)
 
   end
 end

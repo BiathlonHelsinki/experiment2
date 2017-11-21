@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :get_locale
   before_action :get_era
-
+  before_action :get_current_season
 
   protected
 
@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.fullpath
   end
 
+  def get_current_season
+    @current_season = Season.order(start_at: :desc).last
+  end
+  
   def get_era
     @era = Era.find(2)
   end

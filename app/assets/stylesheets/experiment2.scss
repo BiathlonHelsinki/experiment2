@@ -750,3 +750,39 @@ a.button, button.button, input[type=submit] {
     }
   }
 }
+
+.stakes_grid {
+  .stake_box {
+    float: left;
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    margin: 2px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    .overlay {
+      display: none;
+      background-color: white;
+      font-size: 0.7rem;
+      font-family: Source Code Pro;
+
+    }
+    &:hover {
+      .overlay {
+        display: block;
+      }
+    }
+  }
+
+  .green {
+    background: green;
+  }
+
+  .yellow {
+    background: yellow;
+  }
+
+  .grey {
+    background: #777;
+
+  }
+}

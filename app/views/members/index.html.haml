@@ -11,8 +11,21 @@
 
       - if current_user.stakes.empty?
         %p= t(:you_have_no_stakes)
-        - unless @current_season.nil?
-          %p= link_to t(:buy_stakes_in_experiment2), new_season_stake_path(@current_season), class: [:button]
+      - else
+        - if current_user.stakes.booked_unpaid.size > 0
+          %p= t(:you_have_x_booked_this_season, count: current_user.stakes.booked_unpaid.sum(&:amount), stake: t(:stake, count: current_user.stakes.booked_unpaid.sum(&:amount)))
+        - if current_user.stakes.paid.size > 0
+          %p= t(:you_have_x_paid_this_season, count: current_user.stakes.paid.sum(&:amount), stake: t(:stake, count: current_user.stakes.paid.sum(&:amount)))
+        - unless current_user.groups.empty?
+          - current_user.groups.each do |group|
+            - next if group.stakes.empty?
+            %strong= group.name
+            - if group.stakes.booked_unpaid.size > 0
+              %p= t(:this_group_has_x_booked_this_season, count: group.stakes.booked_unpaid.sum(&:amount), stake: t(:stake, count: group.stakes.booked_unpaid.sum(&:amount)))
+      - unless @current_season.nil?
+        %p= link_to t(:buy_stakes_in_experiment2), new_season_stake_path(@current_season), class: [:button]
+
+
     .small-12.columns.medium-8.large-8
       %h3.text-center= t :users_and_groups
       %h6= t :your_groups

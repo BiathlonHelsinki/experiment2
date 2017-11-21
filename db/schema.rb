@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121112758) do
+ActiveRecord::Schema.define(version: 20171121123419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -747,6 +747,7 @@ ActiveRecord::Schema.define(version: 20171121112758) do
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "bookedby_id"
     t.index ["owner_type", "owner_id"], name: "index_stakes_on_owner_type_and_owner_id"
     t.index ["season_id"], name: "index_stakes_on_season_id"
   end
