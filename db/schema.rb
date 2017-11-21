@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120130751) do
+ActiveRecord::Schema.define(version: 20171121112758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -718,10 +718,37 @@ ActiveRecord::Schema.define(version: 20171120130751) do
     t.index ["user_id"], name: "index_rsvps_on_user_id"
   end
 
+  create_table "seasons", force: :cascade do |t|
+    t.integer "number"
+    t.date "start_at"
+    t.date "end_at"
+    t.integer "stake_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "settings", id: :serial, force: :cascade do |t|
     t.hstore "options"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stakes", force: :cascade do |t|
+    t.string "owner_type"
+    t.bigint "owner_id"
+    t.boolean "paid"
+    t.bigint "season_id"
+    t.string "notes"
+    t.datetime "paid_at"
+    t.string "invoice"
+    t.string "invoice_content_type"
+    t.integer "invoice_size"
+    t.integer "amount"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_type", "owner_id"], name: "index_stakes_on_owner_type_and_owner_id"
+    t.index ["season_id"], name: "index_stakes_on_season_id"
   end
 
   create_table "surveys", id: :serial, force: :cascade do |t|
@@ -894,6 +921,7 @@ ActiveRecord::Schema.define(version: 20171120130751) do
   add_foreign_key "roombookings", "users"
   add_foreign_key "rsvps", "instances"
   add_foreign_key "rsvps", "users"
+  add_foreign_key "stakes", "seasons"
   add_foreign_key "surveys", "users"
   add_foreign_key "userlinks", "instances"
   add_foreign_key "userlinks", "users"

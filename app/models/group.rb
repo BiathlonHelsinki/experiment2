@@ -1,6 +1,7 @@
 class Group < ApplicationRecord
   has_many :members, dependent: :destroy, as: :source
   has_many :users, through: :members
+  has_many :stakes, dependent: :destroy, as: :owner
   has_many :owners,
    -> { where(members: { access_level: Experiment2::Access::OWNER }) },
    through: :members,

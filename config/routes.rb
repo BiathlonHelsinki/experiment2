@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :posts
     resources :pages
     resources :meetings
+    resources :seasons
+    resources :stakes
   end
 
   resources :comments do
@@ -48,6 +50,11 @@ Rails.application.routes.draw do
       resources :notifications
     end
   end
+
+  resources :seasons do
+    resources :stakes
+  end
+  
   resources :users do
     collection do
       get :check_unique

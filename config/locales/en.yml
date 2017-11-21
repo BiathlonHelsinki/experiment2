@@ -666,3 +666,5 @@ If you suggest an exact date, we will do our best when scheduling to co-exist wi
   created_the_group: 'created the group '
   edited_the_group: 'edited the description of the group '
   was_added_to_the_group: 'was added to the group '
+  you_have_no_stakes: 'You do not currently own any stakes.'
+  buy_stakes_in_experiment2: 'Buy stakes in Experiment #2'
