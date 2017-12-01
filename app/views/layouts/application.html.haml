@@ -5,7 +5,7 @@
 
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
     %link{:href => "https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro", :rel => "stylesheet"}/
-    %title= content_for?(:title) ? yield(:title) : "Experiment #2 planning"
+    %title= content_for?(:title) ? yield(:title) : "Kuusi Palaa planning & design"
     %link{:href => "/icons/apple-touch-icon.png", :rel => "apple-touch-icon", :sizes => "180x180"}/
     %link{:href => "/icons/favicon-32x32.png", :rel => "icon", :sizes => "32x32", :type => "image/png"}/
     %link{:href => "/icons/favicon-16x16.png", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
@@ -27,7 +27,7 @@
           %hr
       .row
         .small-8.large-3.medium-5.columns.text-left
-          = link_to "[" + t(:about_experiment_2) + "]", page_path('info-on-experiment-2')
+          = link_to "[" + t(:about_kuusi_palaa) + "]", page_path('what-is-kuusi-palaa')
         .medium-2.large-6.hide-for-small-only.columns &nbsp;
         .small-4.large-3.medium-5.columns.text-right
           - if I18n.locale.to_s != 'fi'
@@ -49,10 +49,17 @@
             = link_to "[" + t(:sign_out) + "]", destroy_user_session_path, :method => :delete
           - else
             = link_to "[" + t(:sign_in) + "]", '/users/sign_in'
-      - unless controller.controller_name == 'home'
-        .row
-          .small-10.large-3.medium-5.columns.third.text-left
+
+      .row
+        .small-8.large-3.medium-5.columns.text-left{class: controller.controller_name != 'home' ? :third : false}
+          - unless controller.controller_name == 'home'
             = link_to  t(:home) , '/'
+        .medium-2.large-6.hide-for-small-only.columns &nbsp;
+        .small-4.large-3.medium-5.columns.text-right{class: user_signed_in? ? :third : false}
+          - if user_signed_in?
+            = link_to t(:member_servics), '/members'
+
+
     %article#main
 
       = yield

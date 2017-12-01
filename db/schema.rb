@@ -736,14 +736,14 @@ ActiveRecord::Schema.define(version: 20171121123419) do
   create_table "stakes", force: :cascade do |t|
     t.string "owner_type"
     t.bigint "owner_id"
-    t.boolean "paid"
+    t.boolean "paid", default: false, null: false
     t.bigint "season_id"
     t.string "notes"
     t.datetime "paid_at"
     t.string "invoice"
     t.string "invoice_content_type"
     t.integer "invoice_size"
-    t.integer "amount"
+    t.integer "amount", default: 1, null: false
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

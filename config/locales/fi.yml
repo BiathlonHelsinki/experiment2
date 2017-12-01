@@ -728,7 +728,7 @@ fi:
   discussion: '[Discussion]'
   home: '[Home]'
   start_a_new_topic: 'Start a new topic'
-  start_topic_disclaimer: 'You can start a new topic for discussion here. This can be simply an online forum or a way to organise a working group to approach a design topic for Experiment #2. '
+  start_topic_disclaimer: 'You can start a new topic for discussion here. This can be simply an online forum or a way to organise a working group to approach a design topic for Kuusi Palaa. '
   topic_description: 'Description of this topic:'
   description_blurb: 'canIf you are organising a working group, please state clearly the goals and intentions of it.'
   topic_meeting:  'Does this topic refer to a specific meeting?'
@@ -736,7 +736,7 @@ fi:
   post_topic: 'Post topic!'
   planning_to_attend: ' planning to attend' # as in "3 people are planning to attend" or "1 person is planning to attend"
   watching: ' watching' # as in "3 people watching"
-  footer_blurb: 'Experiment #2 will be powered by Biathlon.'
+  footer_blurb: 'Kuusi Palaa will be powered by Biathlon.'
   footer_contact: 'admin {at} temporary dotfi to contact us in the meantime'
   comment_in_main_thread: 'Comment in main thread'
   comment_this_subthread: 'Comment in this sub-thread'
@@ -747,7 +747,7 @@ fi:
   receive_email_notifications_question_post: 'Would you like to receive email notifications when this topic is updated?'
   send_me_an_email_when_there_is_a_new: 'Send an email to %{email_address} when there is a new: '
   scheduled_meeting: 'meeting added to the calendar'
-  join_experiment_2: 'Join Experiment #2!'
-  no_social_spiel: 'While Experiment #2 encourages independence from corporate Internet overlords, we still encourage you to use your existing accounts with either <a href="/users/auth/facebook">Facebook</a>, <a href="/users/auth/twitter">Twitter</a>, <a href="/users/auth/github">GitHub</a> or <a href="/users/auth/google_oauth2">Google</a> for the simple reason that it makes our lives much easier to outsource your identity verification.'
-  social_spiel2: 'Yet if you do not use any of the above services - and again, we not only respect that but support it!! - then we offer this means to create an account directly with Experiment #2 below.'
+  join_experiment_2: 'Join Kuusi Palaa!'
+  no_social_spiel: 'While Kuusi Palaa encourages independence from corporate Internet overlords, we still encourage you to use your existing accounts with either <a href="/users/auth/facebook">Facebook</a>, <a href="/users/auth/twitter">Twitter</a>, <a href="/users/auth/github">GitHub</a> or <a href="/users/auth/google_oauth2">Google</a> for the simple reason that it makes our lives much easier to outsource your identity verification.'
+  social_spiel2: 'Yet if you do not use any of the above services - and again, we not only respect that but support it!! - then we offer this means to create an account directly with Kuusi Palaa below.'
   close: 'Close'
